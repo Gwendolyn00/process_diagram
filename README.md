@@ -1,29 +1,27 @@
-# Crestron Monitoring System - Process Flow
+# Technical Portfolio
 
-**Role:** Co-architect & Developer | **Tools:** Python, Flask, SQLite
+IT Professional and ServiceNow Certified System Administrator specializing in workflow automation, process analysis, and building data-driven solutions.
 
-**Problem:** IT support was reactive, discovering device failures only when users reported them.
+## Featured Projects
 
-**Solution:** I co-designed and developed a full-stack system to automate monitoring.
+### [1. Infrastructure Monitoring & Automation System](projects/crestron_monitoring.md)
+**Context:** Columbia Law School IT | **Role:** Co-architect & Developer  
+**Problem:** Reactive device failures disrupted classes.  
+**Solution:** Co-developed a full-stack system for proactive monitoring.  
+**Key Skills:** Process Analysis, System Architecture, Python, SQLite, Flask.
 
-### Process Analysis & Design
-Below is the business process flow I designed and implemented for the proactive monitoring solution.
+### [2. ServiceNow Loaner Vehicle Request Application](projects/servicenow_loaner_app.md)
+**Context:** Personal Development Project | **Role:** Application Developer  
+**Problem:** Manual, email-based request process was inefficient.  
+**Solution:** Designed and configured a custom ServiceNow scoped application.  
+**Key Skills:** ServiceNow Development, Workflow Automation, JavaScript, App Engine Studio.
 
+[View all project details and process diagrams in the dedicated project files above.]
 
-```mermaid
-flowchart TD
-    Start([Scheduled Check]) --> Task1[Ping Device]
-    Task1 --> Decision{Device Online?}
-    Decision -- Yes --> Event1[Log Status: Online]
-    Event1 --> CheckPrevious{Previous Status?}
-    CheckPrevious -- Was Offline --> Task2[Mark Downtime Event Resolved]
-    Task2 --> Task3[Send Recovery Alert]
-    Task3 --> End1([Process End])
-    CheckPrevious -- Was Online --> End1
-    Decision -- No --> Event2[Log Status: Offline]
-    Event2 --> CheckPrevious2{Previous Status?}
-    CheckPrevious2 -- Was Online --> Task4[Create New Downtime Event]
-    Task4 --> Task5[Send Outage Alert]
-    Task5 --> End2([Process End])
-    CheckPrevious2 -- Was Offline --> End2
-```
+## Skills & Certifications
+*   **Platforms & Tools:** ServiceNow, ITSM, Google Workspace, Flask, SQLite
+*   **Programming & Scripting:** JavaScript, Python, SQL, Google Apps Script
+*   **Core Competencies:** Business Process Analysis, Workflow Design, System Architecture, Data Modeling
+*   **Certifications:** ServiceNow Certified System Administrator (CSA), AWS Cloud Practitioner
+
+---
