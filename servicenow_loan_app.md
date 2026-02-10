@@ -1,26 +1,23 @@
 # Project: ServiceNow Loan App
 
 ## Overview
-**Problem:** 
+**Problem:** Manual email-based loaner vehicle request process that would get lost in tracking vehicles.
 
-**Solution:** 
+**Solution:** Developed a custom ServiceNow application to automate the vehicle requests, approvals, and inventory tracking.
 
 ## Process Analysis & Design
-I mapped the core business process to define the system's logic:
+I mapped two core business process to define the system's logic:
+
+**Loaner Request Flow**
 
 ```mermaid
 flowchart TD
-    Start([Scheduled Check]) --> Task1[Ping Device]
-    Task1 --> Decision{Device Online?}
-    Decision -- Yes --> Event1[Log Status: Online]
-    Event1 --> CheckPrevious{Previous Status?}
-    CheckPrevious -- Was Offline --> Task2[Mark Downtime Event Resolved]
-    Task2 --> Task3[Send Recovery Alert]
-    Task3 --> End1([Process End])
-    CheckPrevious -- Was Online --> End1
-    Decision -- No --> Event2[Log Status: Offline]
-    Event2 --> CheckPrevious2{Previous Status?}
-    CheckPrevious2 -- Was Online --> Task4[Create New Downtime Event]
-    Task4 --> Task5[Send Outage Alert]
-    Task5 --> End2([Process End])
-    CheckPrevious2 -- Was Offline --> End2
+    Start([User submits Loaner Request Form]) --> Task1[Tracker Record is created]
+    Task1 --> Decision{Approved?}
+    Decision -- Yes --> Event1a[Delivery Task Created]
+    Event1a --> Event2a[Item Record Updated to Closed]
+    Event2a --> Event3a[Vehicle Tracker Record Updated to Out on Field]
+    Event3a --> End1([Process End])
+    Decision -- No --> Event1b[Item Record Updated to Closed Imcomplete]
+    Event1b --> Event2b[Vehicle Tracker Record UPdated to Returned to Warehouse]
+    Event2b --> End2([Process End])
