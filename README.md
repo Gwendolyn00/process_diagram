@@ -4,7 +4,7 @@ IT Professional and ServiceNow Certified System Administrator specializing in wo
 
 ## Featured Projects
 
-### [1. Infrastructure Monitoring & Automation System](projects/crestron_monitoring.md)
+### [1. Infrastructure Monitoring & Automation System](crestron_monitoring.md)
 **Context:** Columbia Law School IT | **Role:** Co-architect & Developer  
 **Problem:** Reactive device failures disrupted classes.  
 **Solution:** Co-developed a full-stack system for proactive monitoring.  
